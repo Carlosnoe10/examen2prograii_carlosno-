@@ -1,8 +1,6 @@
-
 package examen2prograii_carlosnoé;
 
 import java.util.ArrayList;
-
 
 public class Principality extends javax.swing.JFrame {
 
@@ -19,8 +17,23 @@ public class Principality extends javax.swing.JFrame {
         treeNode0.add(treeNode4);
         javax.swing.tree.DefaultMutableTreeNode treeNode5 = new javax.swing.tree.DefaultMutableTreeNode("Q5");
         treeNode0.add(treeNode5);
-        
-        
+
+        for (Torneo MODS : Equipos) {
+            if (MODS.getPeriodoRZ().equalsIgnoreCase("Q1")) {
+                javax.swing.tree.DefaultMutableTreeNode treeNode = new javax.swing.tree.DefaultMutableTreeNode(MODS.getNombre());
+                treeNode1.add(treeNode);
+            } else if (MODS.getPeriodoRZ().equalsIgnoreCase("Q2")) {
+                javax.swing.tree.DefaultMutableTreeNode treeNode = new javax.swing.tree.DefaultMutableTreeNode(MODS.getNombre());
+                treeNode2.add(treeNode);
+            } else if (MODS.getPeriodoRZ().equalsIgnoreCase("Q4")) {
+                javax.swing.tree.DefaultMutableTreeNode treeNode = new javax.swing.tree.DefaultMutableTreeNode(MODS.getNombre());
+                treeNode4.add(treeNode);
+            } else if (MODS.getPeriodoRZ().equalsIgnoreCase("Q5")) {
+                javax.swing.tree.DefaultMutableTreeNode treeNode = new javax.swing.tree.DefaultMutableTreeNode(MODS.getNombre());
+                treeNode5.add(treeNode);
+            }
+
+        }
     }
 
     public Principality() {
@@ -36,12 +49,11 @@ public class Principality extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        FramePPrincipality = new javax.swing.JFrame();
         BB = new javax.swing.JPanel();
         TablasDeDeporte = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JtreeDPs = new javax.swing.JTree();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -60,15 +72,28 @@ public class Principality extends javax.swing.JFrame {
 
         BB.add(TablasDeDeporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 640));
 
+        javax.swing.GroupLayout FramePPrincipalityLayout = new javax.swing.GroupLayout(FramePPrincipality.getContentPane());
+        FramePPrincipality.getContentPane().setLayout(FramePPrincipalityLayout);
+        FramePPrincipalityLayout.setHorizontalGroup(
+            FramePPrincipalityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        FramePPrincipalityLayout.setVerticalGroup(
+            FramePPrincipalityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 1213, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
 
         pack();
@@ -111,6 +136,7 @@ public class Principality extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BB;
+    private javax.swing.JFrame FramePPrincipality;
     private javax.swing.JTree JtreeDPs;
     private javax.swing.JPanel TablasDeDeporte;
     private javax.swing.JScrollPane jScrollPane1;
