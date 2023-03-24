@@ -1,18 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package examen2prograii_carlosnoé;
 
-/**
- *
- * @author cd507
- */
+import java.util.ArrayList;
+
+
 public class Principality extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principality
-     */
+    static ArrayList<Torneo> Equipos;
+
+    public void ArActu() {
+        javax.swing.tree.DefaultMutableTreeNode treeNode0 = new javax.swing.tree.DefaultMutableTreeNode("Torneos");
+        JtreeDPs.setModel(new javax.swing.tree.DefaultTreeModel(treeNode0));
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Q1");
+        treeNode0.add(treeNode1);
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q2");
+        treeNode0.add(treeNode2);
+        javax.swing.tree.DefaultMutableTreeNode treeNode4 = new javax.swing.tree.DefaultMutableTreeNode("Q4");
+        treeNode0.add(treeNode4);
+        javax.swing.tree.DefaultMutableTreeNode treeNode5 = new javax.swing.tree.DefaultMutableTreeNode("Q5");
+        treeNode0.add(treeNode5);
+        
+        
+    }
+
     public Principality() {
         initComponents();
     }
@@ -27,10 +37,28 @@ public class Principality extends javax.swing.JFrame {
     private void initComponents() {
 
         BB = new javax.swing.JPanel();
+        TablasDeDeporte = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JtreeDPs = new javax.swing.JTree();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane1.setViewportView(JtreeDPs);
+
+        javax.swing.GroupLayout TablasDeDeporteLayout = new javax.swing.GroupLayout(TablasDeDeporte);
+        TablasDeDeporte.setLayout(TablasDeDeporteLayout);
+        TablasDeDeporteLayout.setHorizontalGroup(
+            TablasDeDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+        );
+        TablasDeDeporteLayout.setVerticalGroup(
+            TablasDeDeporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+        );
+
+        BB.add(TablasDeDeporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,5 +111,8 @@ public class Principality extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BB;
+    private javax.swing.JTree JtreeDPs;
+    private javax.swing.JPanel TablasDeDeporte;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

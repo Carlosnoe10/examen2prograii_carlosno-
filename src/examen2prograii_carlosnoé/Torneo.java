@@ -6,11 +6,13 @@ public class Torneo {
 public String Nombre;
 public ArrayList<Equipos> Equipos;
 public ArrayList<Partidos> Partidos;
+public String PeriodoRZ;
 
-    public Torneo(String Nombre, ArrayList<Equipos> Equipos, ArrayList<Partidos> Partidos) {
+    public Torneo(String Nombre, ArrayList<Equipos> Equipos, ArrayList<Partidos> Partidos, String PeriodoRZ) {
         this.Nombre = Nombre;
         this.Equipos = Equipos;
         this.Partidos = Partidos;
+        this.PeriodoRZ = PeriodoRZ;
     }
 
     public String getNombre() {
@@ -35,6 +37,14 @@ public ArrayList<Partidos> Partidos;
 
     public void setPartidos(ArrayList<Partidos> Partidos) {
         this.Partidos = Partidos;
+    }
+
+    public String getPeriodoRZ() {
+        return PeriodoRZ;
+    }
+
+    public void setPeriodoRZ(String PeriodoRZ) {
+        this.PeriodoRZ = PeriodoRZ;
     }
 
 
