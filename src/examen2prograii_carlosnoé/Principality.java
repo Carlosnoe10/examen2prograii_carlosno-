@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import javax.swing.DefaultListModel;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -14,6 +17,20 @@ public class Principality extends javax.swing.JFrame {
     static ArrayList<Deporte> Sport;
     static Object objetoS;
 
+    public void ORdenar(){
+        Collections.sort(equipos, new Comparator<Equipo>() {
+    public int compare(Equipo e1, Equipo e2) {
+        return e1.getPosicion() - e2.getPosicion();
+    }
+});
+
+// Crear un modelo de lista con los elementos ordenados
+DefaultListModel<Equipo> model = new DefaultListModel<>();
+for (Equipo equipo : equipos) {
+    model.addElement(equipo);
+}
+    } 
+    
     public void ArActu() {
         javax.swing.tree.DefaultMutableTreeNode treeNode0 = new javax.swing.tree.DefaultMutableTreeNode("Torneos");
         JtreeDPs.setModel(new javax.swing.tree.DefaultTreeModel(treeNode0));
@@ -53,8 +70,22 @@ public class Principality extends javax.swing.JFrame {
         }
     }
 
-    public void NEWJLIST() {
-
+    public void DelayyBar() {
+        if (objetoS instanceof Torneo) {
+            Torneo man = (Torneo) objetoS;
+            int cont = 0;
+            for (int i = 0; i < man.getEquipos().size(); i++) {
+                cont++;
+            }
+            for (int i = 0; i <= 100; i++) {
+                jProgressBar1.setValue(i);
+                try {
+                    Thread.sleep(cont * 7); // Agregar un pequeño retraso para que la barra de progreso se mueva más lento
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public Principality() {
@@ -86,6 +117,7 @@ public class Principality extends javax.swing.JFrame {
         jPopupMenu1 = new javax.swing.JPopupMenu();
         LISTARS = new javax.swing.JMenuItem();
         ShowTABLASPOS = new javax.swing.JMenuItem();
+        Save = new javax.swing.JMenuItem();
         jDialog1 = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -158,8 +190,11 @@ public class Principality extends javax.swing.JFrame {
         LISTARS.setText("ListarEquipos");
         jPopupMenu1.add(LISTARS);
 
-        ShowTABLASPOS.setText("jMenuItem2");
+        ShowTABLASPOS.setText("Mostrar Tabla de posiciones");
         jPopupMenu1.add(ShowTABLASPOS);
+
+        Save.setText("Guardar");
+        jPopupMenu1.add(Save);
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -203,12 +238,16 @@ public class Principality extends javax.swing.JFrame {
         if (seleccion == jFileChooser1.APPROVE_OPTION) {
             File archivoSeleccionado = jFileChooser1.getSelectedFile();
             String rutaArchivo = archivoSeleccionado.getAbsolutePath();
+            
+            AdminTorneos tour = new AdminTorneos(rutaArchivo);
+            tour.cargarArchivo();
             try ( FileInputStream fis = new FileInputStream(rutaArchivo)) {
-                // Leer el archivo binario
+               
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void JtreeDPsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtreeDPsMouseClicked
@@ -224,9 +263,8 @@ public class Principality extends javax.swing.JFrame {
             if (path != null) {
                 DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();
                 // Obtener el objeto que representa al nodo
-                Object nodeObject = node.getUserObject();
-                // Hacer algo con el objeto obtenido
-                System.out.println("Datos del nodo seleccionado: " + nodeObject.toString());
+                objetoS = node.getUserObjectPath();
+
             }
 
             // Mostrar el JPopupMenu en la posición del clic
@@ -272,6 +310,7 @@ public class Principality extends javax.swing.JFrame {
     private javax.swing.JFrame FramePPrincipality;
     private javax.swing.JTree JtreeDPs;
     private javax.swing.JMenuItem LISTARS;
+    private javax.swing.JMenuItem Save;
     private javax.swing.JMenuItem ShowTABLASPOS;
     private javax.swing.JPanel TablasDeDeporte;
     private javax.swing.JButton jButton3;
